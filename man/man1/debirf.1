@@ -115,10 +115,16 @@ line (no spaces).  So for instance, the lines:
 .nf
 
 #DEBIRF_PACKAGE>+emacs
+#DEBIRF_PACKAGE>+ed
 #DEBIRF_PACKAGE>-nano
 
 .fi
-would include the package 'emacs' and exclude the package 'nano'.
+would include the packages
+.B emacs
+and
+.BR ed ,
+and would exclude the package
+.BR nano .
 .PP
 \fBNOTE:\fP Some modules are more important to the proper functioning
 of debirf than others, and the ordering of modules is important.  Some
