@@ -4,6 +4,7 @@
 +less
 -apt-utils
 -aptitude
+-blends-tasks
 -bsdmainutils
 -cron
 -ed
