@@ -7,7 +7,6 @@ install-runit
 lock-root-passwd
 network-dhcp
 root-bashrc
-serial-terminal
 xkiosk
 z0_remove-locales
 z1_clean-root

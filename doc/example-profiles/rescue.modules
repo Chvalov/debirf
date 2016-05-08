@@ -8,6 +8,5 @@ install-manpages
 network
 rescue
 root-bashrc
-serial-terminal
 z0_remove-locales
 z1_clean-root
