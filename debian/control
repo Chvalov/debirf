@@ -3,7 +3,7 @@ Section: admin
 Priority: extra
 Maintainer: Jameson Graef Rollins <jrollins@finestructure.net>
 Uploaders: Daniel Kahn Gillmor <dkg@fifthhorseman.net>
-Build-Depends: debhelper (>= 7.0)
+Build-Depends: debhelper (>= 9)
 Standards-Version: 3.9.8
 Homepage: http://cmrg.fifthhorseman.net/wiki/debirf
 Vcs-Git: https://anonscm.debian.org/git/collab-maint/debirf
