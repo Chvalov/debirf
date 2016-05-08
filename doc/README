@@ -9,12 +9,12 @@ do basically anything that Debian can do.  Some included example
 
 minimal:
   very minimal system with no extras, including no man pages or udev.
-  - requires ~230M of disk space to build, and produces a ~47M initramfs.
+  - requires ~725M of disk space to build, and produces a ~120M initramfs.
 
 rescue:
   includes a full complement of system repair utilities,including
   mdadm, lvm2, testdisk, foremost, etc. 
-  - requires ~250M of disk space to build, and produces a ~51M initramfs.
+  - requires ~900M of disk space to build, and produces a ~150M initramfs.
 
 gzipped archives of these profiles are included with debirf in
 /usr/share/doc/debirf/example-profiles/.  Each of these profiles
