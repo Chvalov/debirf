@@ -46,10 +46,9 @@ Chroot into root of profile PROFILE, with full profile environment.
 Create a bootable CD-ROM image from the kernel and initramfs in
 PROFILE.  This requires a bootloader to be available.  If
 grub-mkrescue (in the grub-common package on debian) is available, it
-will be used.  Otherwise, isolinux (from the syslinux-common package)
-is used if it is available.  You may use the
-\fBDEBIRF_ISO_BOOTLOADER\fP environment variable to specify a
-preference manually (see below).
+will be used.  Otherwise, isolinux is used if it is available.  You
+may use the \fBDEBIRF_ISO_BOOTLOADER\fP environment variable to
+specify a preference manually (see below).
 .TP
 .B help
 Output a brief usage summary.
