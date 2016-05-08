@@ -8,7 +8,9 @@
 -bsdmainutils
 -cron
 -ed
+-ifupdown
 -info
+-isc-dhcp-client
 -logrotate
 -man-db
 -manpages
