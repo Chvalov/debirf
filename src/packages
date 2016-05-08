@@ -3,6 +3,7 @@
 +gpgv
 +less
 -apt-utils
+-aptitude
 -bsdmainutils
 -cron
 -ed
