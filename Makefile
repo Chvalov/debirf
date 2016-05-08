@@ -32,6 +32,7 @@ install: installman profiles
 	mkdir -p $(DESTDIR)$(PREFIX)/share/debirf/modules
 	install src/debirf $(DESTDIR)$(PREFIX)/bin
 	install src/common $(DESTDIR)$(PREFIX)/share/debirf
+	install src/packages $(DESTDIR)$(PREFIX)/share/debirf
 	install --mode=644 src/devices.tar.gz $(DESTDIR)$(PREFIX)/share/debirf
 	install src/modules/* $(DESTDIR)$(PREFIX)/share/debirf/modules
 	install doc/README $(DESTDIR)$(PREFIX)/share/doc/debirf

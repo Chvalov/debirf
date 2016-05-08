@@ -38,26 +38,8 @@ ROOT_WARNING=true
 # location of devices.tar.gz file
 export DEVICE_ARCHIVE=${DEVICE_ARCHIVE:-/usr/share/debirf/devices.tar.gz}
 
-# list of packages to include in debootstrap
-export INCLUDE=\
-busybox-static,\
-gpgv,\
-less
-
-# list of packages to exclude from debootstrap
-export EXCLUDE=\
-apt-utils,\
-bsdmainutils,\
-cron,\
-ed,\
-info,\
-logrotate,\
-man-db,\
-manpages,\
-tasksel,\
-tasksel-data,\
-tcpd,\
-traceroute
+# default package include/excludes
+DEBIRF_DEFAULT_PACKAGES=${DEBIRF_DEFAULT_PACKAGES:-/usr/share/debirf/packages}
 
 ###############################################################
 ### FUNCTIONS
@@ -93,10 +75,29 @@ README file included with this package on how to setup a profile.
 EOF
 }
 
+process_includes_excludes() {
+    if [ "$DEBIRF_EXTRA_PACKAGES" ] ; then
+	msg "WARNING: The DEBIRF_EXTRA_PACKAGES variable is no longer supported."
+	msg "WARNING: See debirf(1) for more info on including/excluding packages."
+    fi
+    local file="$DEBIRF_BUILDD/.packages"
+    cat <"$DEBIRF_DEFAULT_PACKAGES" >"$file"
+    if [ -e "$DEBIRF_BUILDD/packages" ] ; then
+	cat <"$DEBIRF_BUILDD/packages" >>"$file"
+    fi
+    grep -h '^#DEBIRF_PACKAGE>[+-]' $(run-parts --list "$DEBIRF_MODULES") \
+	| sed 's/^#DEBIRF_PACKAGE>//' \
+	| sort | uniq >>"$file"
+    local include=$(grep '^+' <"$file" | sort | uniq | sed 's/^+//' | tr '\n' ',')
+    local exclude=$(grep '^-' <"$file" | sort | uniq | sed 's/^-//' | tr '\n' ',')
+    export INCLUDE=${include%,}
+    export EXCLUDE=${exclude%,}
+}
+
 create_debootstrap() {
     msg "distro/suite: ${DEBIRF_DISTRO}/${DEBIRF_SUITE}"
 
-    local OPTS="--include=$INCLUDE${DEBIRF_EXTRA_PACKAGES:+,}$DEBIRF_EXTRA_PACKAGES --exclude=$EXCLUDE $DEBIRF_SUITE $DEBIRF_ROOT $DEBIRF_MIRROR"
+    local OPTS="--include='$INCLUDE' --exclude='$EXCLUDE' $DEBIRF_SUITE $DEBIRF_ROOT $DEBIRF_MIRROR"
 
     if [ "$DEBIRF_KEYRING" ] ; then
         OPTS="--keyring='$DEBIRF_KEYRING' $OPTS"
@@ -107,6 +108,8 @@ create_debootstrap() {
     fi
 
     mkdir -p "$DEBIRF_ROOT"
+
+    msg "debootstrap $OPTS"
 
     if [ "$ROOT_BUILD" = 'true' ] ; then
 	eval "/usr/sbin/debootstrap $OPTS"
@@ -417,6 +420,8 @@ EOF
 	    failure "Kernel package '$DEBIRF_KERNEL_PACKAGE' not found."
 	fi
     fi
+
+    process_includes_excludes
     
     ### BUILD ROOT
     if [ "$STAGE_ROOT" = 'true' ] ; then
