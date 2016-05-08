@@ -2,6 +2,7 @@
 +dbus
 +gpgv
 +less
++klibc-utils
 -apt-utils
 -aptitude
 -blends-tasks

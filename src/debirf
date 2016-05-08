@@ -187,8 +187,8 @@ create_initrd_nested() {
     done
 
     # copy in run-init and needed libraries
-    cp -f /usr/lib/klibc/bin/run-init "$NEST_ROOT"/bin/
-    cp -f /lib/klibc-* "$NEST_ROOT"/lib/
+    cp -f "$DEBIRF_ROOT"/usr/lib/klibc/bin/run-init "$NEST_ROOT"/bin/
+    cp -f "$DEBIRF_ROOT"/lib/klibc-* "$NEST_ROOT"/lib/
 
     # symlink /lib64 if that is done on host
     # FIXME: is this necessary?
