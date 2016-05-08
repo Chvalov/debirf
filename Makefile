@@ -12,7 +12,7 @@ BUILD_DATE := $(shell dpkg-parsechangelog --show-field Date)
 PREFIX ?= /usr
 MANPREFIX ?= $(PREFIX)/share/man
 
-PROFILES = minimal rescue xkiosk
+PROFILES = minimal rescue
 
 PROFILE_TARBALLS = $(foreach profile,$(PROFILES),doc/example-profiles/$(profile).tgz)
 PROFILE_MODULES = $(foreach profile,$(PROFILES),doc/example-profiles/$(profile)/modules)

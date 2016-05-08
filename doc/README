@@ -16,12 +16,6 @@ rescue:
   mdadm, lvm2, testdisk, foremost, etc. 
   - requires ~250M of disk space to build, and produces a ~51M initramfs.
 
-xkiosk:
-  run a simple clean GUI interface for public-access web browsing.
-  you can pass it the "browse=URL" boot parameter to specify a startup
-  URL. 
-  - requires ~600M of disk space to build, and produces a ~127M initramfs.
-
 gzipped archives of these profiles are included with debirf in
 /usr/share/doc/debirf/example-profiles/.  Each of these profiles
 includes a debirf.conf, and a modules directory that includes links to
