@@ -19,6 +19,8 @@
 # They are Copyright 2007, and are all released under the GPL,
 # version 3 or later.
 
+#DEBIRF_PACKAGE>+kmod
+
 # clear out old modules if they exist, to avoid confusion
 rm -rf "$DEBIRF_ROOT/lib/modules"
 
@@ -52,9 +54,6 @@ KPKG=$(basename "$DEBIRF_ROOT"/var/cache/apt/archives/linux-image-*)
 
 echo "extracting kernel package $KPKG..."
 debirf_exec dpkg --extract /var/cache/apt/archives/"$KPKG" /
-
-# install the module init tools, since they are needed for depmod
-debirf_exec apt-get --assume-yes install module-init-tools
 
 # depmod to create module list
 KVERS=$(ls -1 -t "$DEBIRF_ROOT/lib/modules" | head -n1)
