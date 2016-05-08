@@ -29,8 +29,8 @@ EOF
 ln -sf /run/systemd/resolve/resolv.conf "${DEBIRF_ROOT}/etc/resolv.conf"
 debirf_exec systemctl enable systemd-resolved.service
 
-# add network note to /etc/motd.tail
-cat <<EOF >> "${DEBIRF_ROOT}/etc/motd.tail"
+# add network note to /etc/motd
+cat <<EOF >> "${DEBIRF_ROOT}/etc/motd"
 If you have a network interface and you want to use DHCP,
 you can bring it up with:
 
