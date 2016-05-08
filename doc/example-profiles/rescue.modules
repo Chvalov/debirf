@@ -6,7 +6,7 @@ bootlog
 install-kernel
 install-manpages
 network
-rescue
+mdadm
 root-bashrc
 z0_remove-locales
 z1_clean-root
