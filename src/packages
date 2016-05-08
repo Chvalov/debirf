@@ -1,4 +1,5 @@
 +busybox-static
++dbus
 +gpgv
 +less
 -apt-utils
@@ -9,6 +10,7 @@
 -logrotate
 -man-db
 -manpages
+-rsyslog
 -tasksel
 -tasksel-data
 -tcpd
