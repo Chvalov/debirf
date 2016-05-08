@@ -18,6 +18,12 @@ CMD=$(basename $0)
 DEBIRF_COMMON=${DEBIRF_COMMON:-/usr/share/debirf/common}
 source "$DEBIRF_COMMON"
 
+DEBIRF_VERSION=unknown
+if [ -r /usr/share/debirf/version ]; then
+    DEBIRF_VERSION=$(cat /usr/share/debirf/version)
+fi
+export DEBIRF_VERSION
+
 # default label
 DEBIRF_LABEL=${DEBIRF_LABEL:-debirf}
 
@@ -47,7 +53,7 @@ DEBIRF_DEFAULT_PACKAGES=${DEBIRF_DEFAULT_PACKAGES:-/usr/share/debirf/packages}
 usage() {
     cat <<EOF
 Usage: $CMD <subcommand> [options] [args]
-Debirf system tool.
+Debian in initial ram filesystem tool (version $DEBIRF_VERSION)
 
 subcommands:
   make [options] PROFILE    build debirf kernel and initramfs

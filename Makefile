@@ -35,6 +35,7 @@ install: installman profiles
 	install --mode=644 src/packages $(DESTDIR)$(PREFIX)/share/debirf
 	install --mode=644 src/devices.tar.gz $(DESTDIR)$(PREFIX)/share/debirf
 	install src/modules/* $(DESTDIR)$(PREFIX)/share/debirf/modules
+	echo $(VERSION) > $(DESTDIR)$(PREFIX)/share/debirf/version
 	install doc/README $(DESTDIR)$(PREFIX)/share/doc/debirf
 	install doc/autobuilder $(DESTDIR)$(PREFIX)/share/doc/debirf
 	install doc/example-profiles/*.tgz $(DESTDIR)$(PREFIX)/share/doc/debirf/example-profiles
