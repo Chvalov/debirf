@@ -8,6 +8,7 @@
 -bsdmainutils
 -cron
 -ed
+-init-system-helpers
 -ifupdown
 -info
 -isc-dhcp-client

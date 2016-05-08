@@ -27,7 +27,7 @@ DHCP=yes
 EOF
 
 ln -sf /run/systemd/resolve/resolv.conf "${DEBIRF_ROOT}/etc/resolv.conf"
-ln -sf /lib/systemd/system/systemd-resolved.service "${DEBIRF_ROOT}/etc/systemd/system/multi-user.target.wants/"
+debirf_exec systemctl enable systemd-resolved.service
 
 # add network note to /etc/motd.tail
 cat <<EOF >> "${DEBIRF_ROOT}/etc/motd.tail"
