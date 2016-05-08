@@ -2,7 +2,6 @@ a0_add_extra_repos
 a0_add_security_repos
 a0_motd
 a0_prep-root
-bootlog
 install-kernel
 install-manpages
 network
