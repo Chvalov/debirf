@@ -357,14 +357,23 @@ make() {
 		shift 1
 		;;
             -n|--new)
+		if [ "$WRITE_MODE" ] ; then
+		   failure "Only one of the -n/-o/-s switches may be specified at once."
+		fi
 		WRITE_MODE=rewrite
 		shift 1
 		;;
             -o|--overwrite)
+		if [ "$WRITE_MODE" ] ; then
+		   failure "Only one of the -n/-o/-s switches may be specified at once."
+		fi
 		WRITE_MODE=overwrite
 		shift 1
 		;;
             -s|--skip)
+		if [ "$WRITE_MODE" ] ; then
+		   failure "Only one of the -n/-o/-s switches may be specified at once."
+		fi
 		WRITE_MODE=skip
 		shift 1
 		;;
@@ -402,7 +411,7 @@ make() {
 		;;
 	esac
     done
-    
+
     if [ $(id -u) = '0' ] ; then
 	cat <<EOF
 Warning: You are running debirf as root.  There is a potential
