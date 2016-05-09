@@ -591,7 +591,11 @@ makeiso() {
 	if which grub-mkrescue >/dev/null ; then
 	    local DEBIRF_ISO_BOOTLOADER=grub
 	elif [ -f /usr/lib/ISOLINUX/isolinux.bin ] ; then
-	    local DEBIRF_ISO_BOOTLOADER=isolinux
+            if [ -f /usr/lib/syslinux/modules/bios/ldlinux.c32 ] ; then
+	        local DEBIRF_ISO_BOOTLOADER=isolinux
+            else
+                failure "no suitable El Torito bootloader found: need syslinux-common to work with isolinux"
+            fi
 	else
 	    failure "Suitable El Torito boot loader not found.  Please install grub-pc or isolinux."
 	fi
@@ -642,7 +646,13 @@ EOF
 
 	isolinux)
 	    msg "using isolinux as bootloader..."
-
+            ISOLINUX_FILES="/usr/lib/syslinux/modules/bios/ldlinux.c32 /usr/lib/ISOLINUX/isolinux.bin"
+            for f in $ISOLINUX_FILES; do
+                if ! [ -f "$f" ]; then
+                    failure "Need file '$f' to build isolinux-based ISO"
+                fi
+            done
+                     
             (which xorriso > /dev/null) || failure "xorriso is not in your path.  Maybe you need to install it?"
 
 
@@ -652,7 +662,7 @@ EOF
 
 	    # insert isolinux eltorito image
             mkdir -p "$ISODIR"/boot/isolinux
-	    cp /usr/lib/ISOLINUX/isolinux.bin "$ISODIR"/boot/isolinux
+	    cp $ISOLINUX_FILES "$ISODIR"/boot/isolinux
 
 	    # make isolinux menu
 	    cat >"$ISODIR"/isolinux.cfg <<EOF
