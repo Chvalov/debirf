@@ -1,3 +1,13 @@
+debirf (0.36) unstable; urgency=medium
+
+  * Debirf can now better handle all package includes/excludes entirely
+    during the debootstrap stage.  Package includes/excludes can either be
+    specified in a profile "packages" file (as a one-per-line '+'/'-'
+    list), or using a "#DEBIRF_PACKAGE>" comment in module scripts.  See
+    debirf(1) for more info.
+
+ -- Jameson Graef Rollins <jrollins@finestructure.net>  Sun, 08 May 2016 19:07:31 -0700
+
 debirf (0.24-1) unstable; urgency=low
 
   * Due to incompatibilities between squeeze and lenny, it is currently
