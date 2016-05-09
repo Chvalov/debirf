@@ -3,6 +3,7 @@
 +chntpw
 +cryptsetup
 +gddrescue
++diskscan
 +dosfstools
 +e2tools
 +eject
