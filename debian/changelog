@@ -1,3 +1,19 @@
+debirf (0.36) unstable; urgency=medium
+
+  * better systemd compatibility, prune obsolete modules
+  * xkiosk profile no longer supported, purged
+  * Better package include/exclude handling (Closes: #754470)
+  * update install-kernel module for kmod (Closes: #815106)
+  * fix cross-arch nests (Closes: #778752)
+  * fix argument parsing for mutually exclusive write modes (Closes: #721094)
+  * added diskscan to rescue (Closes: #803792)
+  * ensure that isolinux CDs can actually boot (Closes: #773774)
+  * bump standards-version to 3.9.8 (no changes needed)
+  * move to dh 9
+  * use standard debian/copyright syntax
+
+ -- Jameson Graef Rollins <jrollins@finestructure.net>  Sun, 08 May 2016 18:51:56 -0700
+
 debirf (0.35) unstable; urgency=medium
 
   * reproducibility: make example profiles reproducible (thanks, Chris
