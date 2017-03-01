@@ -67,4 +67,4 @@ debirf_exec apt-get --yes --force-yes update
 debirf_exec apt-get --yes --force-yes upgrade
 
 # work around http://bugs.debian.org/686965
-debirf_exec sh -c 'cd /etc/init.d && insserv $(ls | grep -vFx -e rc -e rcS -e skeleton -e README)'
+debirf_exec sh -c 'if `which insserv > /dev/null`; then cd /etc/init.d && insserv $(ls | grep -vFx -e rc -e rcS -e skeleton -e README); fi'
