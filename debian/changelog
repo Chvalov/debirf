@@ -1,3 +1,18 @@
+debirf (0.37) unstable; urgency=medium
+
+  [ JH Chatenet ]
+  * run fakeroot with bash (Closes: #850080)
+  * a0_prep-root: run insserv if installed (Closes: #833125)
+
+  [ Antoine Beaupré ]
+  * avoid crash if CDPATH is set (Closes: #848693)
+
+  [ Daniel Kahn Gillmor ]
+  * enable rootfs xz compression (Closes: #813472)
+  * Add more utilities to rescue profile (Closes: #834478)
+
+ -- Daniel Kahn Gillmor <dkg@fifthhorseman.net>  Thu, 18 May 2017 12:10:07 -0400
+
 debirf (0.36) unstable; urgency=medium
 
   * better systemd compatibility, prune obsolete modules
