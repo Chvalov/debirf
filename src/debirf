@@ -15,6 +15,7 @@
 
 CMD=$(basename $0)
 
+unset CDPATH
 DEBIRF_COMMON=${DEBIRF_COMMON:-/usr/share/debirf/common}
 source "$DEBIRF_COMMON"
 
