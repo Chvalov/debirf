@@ -17,6 +17,7 @@ Depends: apt,
          fakechroot,
          fakeroot,
          klibc-utils,
+         xz-utils,
          ${misc:Depends}
 Recommends: grub-common (>= 1.98+20100804) | isolinux,
             lsb-release,

@@ -159,7 +159,7 @@ pack_rootfs() {
 
     # abort with a failure if our attempts to build the rootfs fail:
     set -o pipefail
-    fakeroot_if_needed bash -c ". $DEBIRF_COMMON && FAKECHROOT_EXCLUDE_PATH=/does-not-exist debirf_exec sh -c 'find * | grep -v -e ^run/ | cpio --create -H newc'" | gzip -9 > "$1"
+    fakeroot_if_needed bash -c ". $DEBIRF_COMMON && FAKECHROOT_EXCLUDE_PATH=/does-not-exist debirf_exec sh -c 'find * | grep -v -e ^run/ | cpio --create -H newc'" | xz -9 > "$1"
 }
 export -f pack_rootfs
 
@@ -215,7 +215,7 @@ if (grep -q break=preunpack /proc/cmdline); then
 fi
 cd /newroot
 echo unpacking rootfs...
-gunzip - < /rootfs.cgz | cpio -i
+unxz - < /rootfs.cxz | cpio -i
 if (grep -q break=bottom /proc/cmdline); then
   echo "honoring break=bottom kernel arg"
   /bin/sh
@@ -226,9 +226,9 @@ exec /bin/run-init . /sbin/init < ./dev/console > ./dev/console
 EOF
     chmod a+x "$NEST_ROOT"/init
 
-    msg "creating rootfs.cgz..."
+    msg "creating rootfs.cxz..."
     fakeroot_if_needed ln -sf /sbin/init "$DEBIRF_ROOT/init"
-    pack_rootfs "$NEST_ROOT"/rootfs.cgz
+    pack_rootfs "$NEST_ROOT"/rootfs.cxz
 
     msg "creating wrapper cgz..."
     fakeroot_if_needed sh -c "cd $NEST_ROOT && find * | cpio --create -H newc" | gzip -9 > "$INITRD"
