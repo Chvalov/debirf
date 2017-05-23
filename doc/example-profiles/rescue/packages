@@ -1,5 +1,6 @@
 +blktool
 +bonnie++
++btrfs-progs
 +chntpw
 +cryptsetup
 +diskscan
