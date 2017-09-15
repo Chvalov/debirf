@@ -36,6 +36,7 @@
 +rsync
 +screen
 +scrub
++scsitools
 +sdparm
 +sg3-utils
 +smartmontools
