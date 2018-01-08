@@ -1,0 +1,2 @@
+Tests: autobuild
+Depends: @, grub-common, lsb-release, xorriso, syslinux-common

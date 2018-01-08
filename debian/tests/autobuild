@@ -1,0 +1,17 @@
+#!/bin/bash
+
+set -e
+
+# Author: Daniel Kahn Gillmor <dkg@fifthhorseman.net>
+
+cd "$AUTOPKGTEST_TMP"
+
+SUITES=unstable /usr/share/doc/debirf/autobuilder
+
+cd profiles/"$(dpkg --print-architecture)"
+
+cp -a sha256sums.txt index.html "$AUTOPKGTEST_ARTIFACTS"/
+for x in */*; do
+    mkdir -p "$AUTOPKGTEST_ARTIFACTS/$x"
+    mv "$x/*.cgz" "$x/*.iso" "$x/vmlinu*" "$AUTOPKGTEST_ARTIFACTS/$x/"
+done
