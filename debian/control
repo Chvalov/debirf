@@ -2,8 +2,11 @@ Source: debirf
 Section: admin
 Priority: extra
 Maintainer: Jameson Graef Rollins <jrollins@finestructure.net>
-Uploaders: Daniel Kahn Gillmor <dkg@fifthhorseman.net>
-Build-Depends: debhelper (>= 9), tar (>= 1.28)
+Uploaders:
+ Daniel Kahn Gillmor <dkg@fifthhorseman.net>,
+Build-Depends:
+ debhelper (>= 9),
+ tar (>= 1.28),
 Standards-Version: 3.9.8
 Homepage: http://cmrg.fifthhorseman.net/wiki/debirf
 Vcs-Git: https://anonscm.debian.org/git/collab-maint/debirf
@@ -11,18 +14,21 @@ Vcs-Browser: https://anonscm.debian.org/git/collab-maint/debirf
 
 Package: debirf
 Architecture: all
-Depends: apt,
-         cpio,
-         debootstrap,
-         fakechroot,
-         fakeroot,
-         klibc-utils,
-         xz-utils,
-         ${misc:Depends}
-Recommends: grub-common (>= 1.98+20100804) | isolinux,
-            lsb-release,
-            xorriso
-Suggests: syslinux-common
+Depends:
+ apt,
+ cpio,
+ debootstrap,
+ fakechroot,
+ fakeroot,
+ klibc-utils,
+ xz-utils,
+ ${misc:Depends},
+Recommends:
+ grub-common (>= 1.98+20100804) | isolinux,
+ lsb-release,
+ xorriso,
+Suggests:
+ syslinux-common,
 Description: build a kernel and initrd to run Debian from RAM
  debirf (DEBian on Initial Ram Filesystem) is a set of tools designed
  to create and prepare a kernel and initial ram filesystem that can
