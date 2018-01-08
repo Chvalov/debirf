@@ -1,3 +1,25 @@
+debirf (0.38) unstable; urgency=medium
+
+  [ Daniel Kahn Gillmor ]
+  * added btrfs-progs to rescue profile
+
+  [ Chris Lamb ]
+  * Make build reproducible (Closes: #859302)
+
+  [ Daniel Kahn Gillmor ]
+  * re-added scsitools, since #686881 got fixed
+  * added p7zip due (request from taggart)
+  * wrap-and-sort -ast
+  * standards-version: bump to 4.1.3 (moved to Priority: optional)
+  * move to debhelper 11
+  * move to salsa.debian.org
+  * d/changelog: strip trailing whitespace
+  * avoid using asterisk in NEWS
+  * add an autopkgtest autobuilder
+  * fix tar sort order
+
+ -- Daniel Kahn Gillmor <dkg@fifthhorseman.net>  Mon, 08 Jan 2018 18:43:42 -0500
+
 debirf (0.37) unstable; urgency=medium
 
   [ JH Chatenet ]
