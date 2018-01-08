@@ -54,10 +54,10 @@ debirf (0.33) unstable; urgency=low
   [ Jameson Rollins ]
   * fix comments about default suite in example config files.  Thanks,
     Simon Elsbrock!  (Closes: #656138)
-  
+
   [ Matt Taggart ]
   * ddrescue was dropped in favor of gddrescue (Closes: #685138)
-  
+
   [ Daniel Kahn Gillmor ]
   * removed scsitools from rescue module due to maintainer script breakage
     under fakechroot (see #686881)
@@ -148,8 +148,8 @@ debirf (0.27-1) unstable; urgency=low
     - don't require partimage for rescue image on ubuntu, since it is not
       available on amd64 there (see LP 198724)
   * Bumped Standards-Version to 3.8.4 (no changes needed)
-  * included revision number in debian/copyright for DEP5 
-  
+  * included revision number in debian/copyright for DEP5
+
  -- Daniel Kahn Gillmor <dkg@fifthhorseman.net>  Wed, 17 Feb 2010 01:39:34 -0500
 
 debirf (0.26-1) unstable; urgency=low
@@ -198,7 +198,7 @@ debirf (0.23-1) unstable; urgency=low
   * fixed broken sed expression in nest library search (thanks, Guido Günther)
     (Closes: #509381)
   * bumped policy to 3.8.1 (no changes needed).
-  
+
  -- Daniel Kahn Gillmor <dkg@fifthhorseman.net>  Tue, 16 Jun 2009 13:34:05 -0400
 
 debirf (0.22-1) unstable; urgency=low
@@ -294,7 +294,7 @@ debirf (0.18-1) unstable; urgency=low
 
 debirf (0.17-1) unstable; urgency=low
 
-  * actually release really stupid bugs in getopt code associated with 
+  * actually release really stupid bugs in getopt code associated with
     gpg debootstrap verification.
   * edited README to align with new debirf verbs, and to make the examples
     more concrete.
@@ -343,7 +343,7 @@ debirf (0.14-1) unstable; urgency=low
   * added root-passwd module, and added it to xkiosk profile.
   * added Vcs-Svn, Vcs-Browser, and XS-Dm-Upload-Allowed fields to
     debian/control
-  * make xkiosk back off if there are 5 restarts in under a minute 
+  * make xkiosk back off if there are 5 restarts in under a minute
     (closes CMRG #74)
   * remove PCI device ID from default xorg.conf (autodetection seems to
     work better)
@@ -441,7 +441,7 @@ debirf (0.6) unstable; urgency=low
 
 debirf (0.5) unstable; urgency=low
 
-  * fixed old broken references to DEBIAN_PATH environment variable 
+  * fixed old broken references to DEBIAN_PATH environment variable
   * fix apt-get-disk-rescue plugin to stop mdadm daemon after install (was
     preventing /proc from being unmounted)
   * tweaked install-kernel plugin
