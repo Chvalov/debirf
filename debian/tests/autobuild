@@ -6,7 +6,7 @@ set -e
 
 cd "$AUTOPKGTEST_TMP"
 
-SUITES=unstable /usr/share/doc/debirf/autobuilder
+SUITES=unstable bash /usr/share/doc/debirf/autobuilder
 
 cd profiles/"$(dpkg --print-architecture)"
 
