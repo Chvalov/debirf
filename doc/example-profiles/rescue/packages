@@ -44,6 +44,7 @@
 +smp-utils
 +socat
 +squashfs-tools
++stress-ng
 +superiotool
 +testdisk
 +testdisk
