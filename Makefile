@@ -6,7 +6,7 @@
 #               Daniel Kahn Gillmor <dkg@fifthhorseman.net>
 # Licensed under GPL v3 or later
 
-VERSION := `head -n1 debian/changelog | sed 's/.*(\([^-]*\).*/\1/'`
+VERSION := `head -n1 debian/changelog | sed 's/.*(\([^-)]*\).*/\1/'`
 BUILD_DATE := $(shell dpkg-parsechangelog --show-field Date)
 
 PREFIX ?= /usr
