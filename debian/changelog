@@ -1,6 +1,10 @@
 debirf (0.39) UNRELEASED; urgency=medium
 
+  [ Ondřej Nový ]
   * d/copyright: Use https protocol in Format field
+
+  [ Gunnar Wolf ]
+  * switch from /updates to -security (Closes: #969938)
 
  -- Ondřej Nový <onovy@debian.org>  Mon, 01 Oct 2018 10:36:19 +0200
 

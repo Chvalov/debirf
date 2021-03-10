@@ -22,7 +22,7 @@ case "${DEBIRF_DISTRO}" in
                 ;;
             *)
                 cat <<EOF > "${DEBIRF_ROOT}/etc/apt/sources.list.d/security_repos.list"
-deb http://security.debian.org/ ${DEBIRF_SUITE}/updates main contrib non-free
+deb http://security.debian.org/ ${DEBIRF_SUITE}-security main contrib non-free
 EOF
                 ;;
         esac
