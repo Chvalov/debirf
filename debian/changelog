@@ -8,6 +8,8 @@ debirf (0.39) UNRELEASED; urgency=medium
 
   [ Faidon Liambotis ]
   * Unbreak nested builds, by shipping /bin/unxz in the outer initramfs.
+  * Unbreak stupid simple builds, by passing --check=crc32 to xz when packing
+    the rootfs, as the crc64 default is not supported by Linux.
 
  -- Ondřej Nový <onovy@debian.org>  Mon, 01 Oct 2018 10:36:19 +0200
 
