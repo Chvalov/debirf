@@ -6,6 +6,9 @@ debirf (0.39) UNRELEASED; urgency=medium
   [ Gunnar Wolf ]
   * switch from /updates to -security (Closes: #969938)
 
+  [ Faidon Liambotis ]
+  * Unbreak nested builds, by shipping /bin/unxz in the outer initramfs.
+
  -- Ondřej Nový <onovy@debian.org>  Mon, 01 Oct 2018 10:36:19 +0200
 
 debirf (0.38) unstable; urgency=medium
