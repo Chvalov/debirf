@@ -35,7 +35,7 @@ if [ -z "$DEBIRF_KERNEL_PACKAGE" ] ; then
     # determine the full kernel version from the dependency of the
     # generic linux-image-ARCH package in the debirf root (since it
     # may be different than what is installed on the build host)
-    KNAME=$(debirf_exec apt-cache show linux-image-"$KARCH" | grep '^Depends: ' | sed 's/^Depends: //' | tr ',' '\n' | tr -d ' ' | grep ^linux-image | sort -r | head -n1)
+    KNAME=$(debirf_exec apt-cache show linux-image-"$KARCH" | grep '^Depends: ' | sed 's/^Depends: //' | grep -o 'linux-image-[^, ]*' | cut -d ' ' -f 1 | sort -rV | head -n1)
 
     # download only the desired kernel package for later dpkg
     # extraction.  this also downloads the kernel dependencies, but
@@ -53,7 +53,7 @@ fi
 KPKG=$(basename "$DEBIRF_ROOT"/var/cache/apt/archives/linux-image-*)
 
 echo "extracting kernel package $KPKG..."
-debirf_exec dpkg --extract /var/cache/apt/archives/"$KPKG" /
+debirf_exec su -c "dpkg-deb --fsys-tarfile /var/cache/apt/archives/'$KPKG' | tar -xv --keep-directory-symlink -C /"
 
 # depmod to create module list
 KVERS=$(ls -1 -t "$DEBIRF_ROOT/lib/modules" | head -n1)
